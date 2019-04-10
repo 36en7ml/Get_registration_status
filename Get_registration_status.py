@@ -51,7 +51,7 @@ while line:
             name = re.search(ID + '.*', html).group(0)
             name = name.replace(ID, '')
             name = name.replace('</td><td>', ' ')
-            name = name.replace('</td></tr>', ' の履修している科目一覧を表示したいと思います！')
+            name = name.replace('</td></tr>', ' さんの履修している科目一覧を表示したいと思います！')
             print()
             print('あの人の学籍番号は分かっているのに、どんな講義を受講しているのか分からない...')
             print('そんな時、みなさんはどうしていますか？')
