@@ -2,6 +2,7 @@
 import os
 import re
 import sys
+import requests
 from urllib.request import urlopen
 from urllib.parse import urljoin
 from html import unescape
@@ -18,13 +19,19 @@ for file in ls:
         isURL = True
 
 if(isMJH == False and isURL == False):
-    f = open('url.txt', 'w')
-    f.close()
-    os.system("wget " + base_url)
-    url = os.system("cat mlindex_j.html | grep align=center | sed -E 's/<td align=center><a href=//' | sed -E 's/>■<\/a><\/td>//' > url.txt")
-    os.remove("./mlindex_j.html")
+    uf = open('url.txt', 'w')
+    #os.system("wget " + base_url)
+    #url = os.system("cat mlindex_j.html | grep align=center | sed -E 's/<td align=center><a href=//' | sed -E 's/>■<\/a><\/td>//' > url.txt")
+    #os.remove("./mlindex_j.html")
+    url = requests.get('http://web-int.u-aizu.ac.jp/official/students/sad/ML/Index/mlindex_j.html')
+    uf.write(url.text)
 
-fourl = open('url.txt', 'r')
+    os.system("cat url.txt | grep align=center | sed -E 's/<td align=center><a href=//' | sed -E 's/>■<\/a><\/td>//' | sed -E '>â </a></td>'> urllist.txt")
+    #os.system("cat url.txt | grep align=center | sed -E 's/<td align=center><a href=//' | sed -E 's/>■<\/a><\/td>//' > url.txt")
+    #uf.write(buff.text)
+    uf.close()
+
+fourl = open('urllist.txt', 'r')
 line = fourl.readline()
 
 print('特定対象の学籍番号を入力してください♪')
