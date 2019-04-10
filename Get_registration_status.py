@@ -50,8 +50,10 @@ while line:
         if(isFirst):
             name = re.search(ID + '.*', html).group(0)
             name = name.replace(ID, '')
-            name = name.replace('</td><td>', ' ')
-            name = name.replace('</td></tr>', ' さんの履修している科目一覧を表示したいと思います！')
+            #name = name.replace('</td><td>', ' ')
+            name = name.replace('</td></tr>', ' ')
+            name = name.split('</td><td>')
+
             print()
             print('あの人の学籍番号は分かっているのに、どんな講義を受講しているのか分からない...')
             print('そんな時、みなさんはどうしていますか？')
@@ -59,7 +61,7 @@ while line:
             print('学籍番号が分かっているなら履修科目も気になりますよね？')
             print('私も気になります！！')
             print()
-            print('それでは今から' + name)
+            print('それでは今から、' + name[1] + 'さんの履修している科目一覧を表示したいと思います！')
             print()
             print()
             isFirst = False
