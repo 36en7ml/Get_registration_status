@@ -69,7 +69,7 @@ while line:
 
     line = fourl.readline()
 
-
+print()
 print('いかがでしたか？')
 fourl.close()
 f.close()
