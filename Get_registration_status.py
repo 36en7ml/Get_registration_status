@@ -61,6 +61,7 @@ while line:
             print()
             print('それでは今から' + name)
             print()
+            print()
             isFirst = False
         print(subject)
         print(p)
