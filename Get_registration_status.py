@@ -27,7 +27,7 @@ if(isMJH == False and isURL == False):
 fourl = open('url.txt', 'r')
 line = fourl.readline()
 
-print('対象の学籍番号を入力してください♪')
+print('特定対象の学籍番号を入力してください♪')
 ID = input()
 
 isFirst = True
@@ -52,7 +52,14 @@ while line:
             name = name.replace(ID, '')
             name = name.replace('</td><td>', ' ')
             name = name.replace('</td></tr>', ' の履修している科目一覧を表示したいと思います！')
-            print('今から' + name)
+            print()
+            print('あの人の学籍番号は分かっているのに、どんな講義を受講しているのか分からない...')
+            print('そんな時、みなさんはどうしていますか？')
+            print()
+            print('学籍番号が分かっているなら履修科目も気になりますよね？')
+            print('私も気になります！！')
+            print()
+            print('それでは今から' + name)
             print()
             isFirst = False
         print(subject)
